@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import FormTitle from './FormTitle';
+import Post from './Post';
 
 export default function FuncPostContainer() {
     const [state, setState] = useState({posts: []})
@@ -38,8 +39,10 @@ export default function FuncPostContainer() {
                 
                 {state.posts.map(post => (
                     <div onClick={() => handleDeleteToDo(post.id)} key={post.id}>
-                        <h2>{post.title}</h2>
-                        <p>{post.title}</p>
+                        <Post title={post.title}>
+                            <p>{post.title}</p>
+                        </Post>
+                        
                     </div>
                     
                 ))}
